@@ -33,7 +33,6 @@ void _info(info_t *info, char **v)
 			}
 		}
 		for (n = 0; info->argv && info->argv[n]; n++)
-		;
 		info->argc = n;
 		_repalias(info);
 		_repvars(info);
