@@ -17,4 +17,4 @@ implement built-ins
 handle special characters : ", ', `, \, *, &, #
 be able to move the cursor
 handle commands with arguments
-execve will be the core part of your Shell, don’t forget to pass the environ to it…
+execve will be the core part of your Shell, don’t forget to pass the environ to it
