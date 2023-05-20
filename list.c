@@ -4,11 +4,11 @@
  * add_to - adds a node at start of the list
  * @head: address of pointer to head node
  * @str: string field of node
- * @cel: node index used by history
+ * @num: node index used by history
  *
  * Return: size of list
  */
-list_t *add_to(list_t **head, const char *str, int cel)
+list_t *add_to(list_t **head, const char *str, int num)
 {
 	list_t *new_h;
 
@@ -18,7 +18,7 @@ list_t *add_to(list_t **head, const char *str, int cel)
 	if (!new_h)
 		return (NULL);
 	set_memo((void *)new_h, 0, sizeof(list_t));
-	new_h->cel = cel;
+	new_h->num = num;
 	if (str)
 	{
 		new_h->str = string_duplicate(str);
@@ -37,11 +37,11 @@ list_t *add_to(list_t **head, const char *str, int cel)
  * add_to_end - adds a node to the end of the list
  * @head: address of pointer to head node
  * @str: str field of node
- * @cel: node index used by history
+ * @num: node index used by history
  *
  * Return: size of list
  */
-list_t *add_to_end(list_t **head, const char *str, int cel)
+list_t *add_to_end(list_t **head, const char *str, int num)
 {
 	list_t *new_n, *node;
 
@@ -53,7 +53,7 @@ list_t *add_to_end(list_t **head, const char *str, int cel)
 	if (!new_n)
 		return (NULL);
 	set_memo((void *)new_n, 0, sizeof(list_t));
-	new_n->cel = cel;
+	new_n->num = num;
 	if (str)
 	{
 		new_n->str = string_duplicate(str);

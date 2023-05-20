@@ -1,4 +1,4 @@
-include "shell.h"
+#include "shell.h"
 
 /**
  * list_lght - dispaly length of linked list
@@ -73,7 +73,7 @@ size_t print_list(const list_t *h)
 		print_string(h->str ? h->str : "(nil)");
 		print_string("\n");
 		h = h->next;
-		n++;
+		h++;
 	}
 	return (k);
 }
@@ -107,16 +107,16 @@ list_t *node_st_with(list_t *node, char *prefix, char c)
  *
  * Return: index of node or -1
  */
-ssize_t get_index(list_t *head, list_t *node)
+size_t get_index(list_t *head, list_t *node)
 {
-	size_t k = 0;
+	size_t i = 0;
 
 	while (head)
 	{
 		if (head == node)
-			return (k);
+			return (i);
 		head = head->next;
-		k++;
+		i++;
 	}
 	return (-1);
 }

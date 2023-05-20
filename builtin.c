@@ -56,7 +56,7 @@ int now_dr(info_t *info)
 	{
 		if (!ge_to_env(info, "OLDPWD="))
 		{
-			print_string(s);
+			print_string(*dir);
 			_putchar('\n');
 			return (1);
 		}
