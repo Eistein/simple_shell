@@ -8,10 +8,12 @@
 char *get_hi_file(info_t *info)
 {
 	char *buf, *dir;
+
 	dir = ge_to_env(info, "HOME=");
 	if (!dir)
 		return (NULL);
-	buf = malloc(sizeof(char) * (string_length(dir) + string_length(HIST_FILE) + 2));
+	buf = malloc(sizeof(char) *
+			(string_length(dir) + string_length(HIST_FILE) + 2));
 	if (!buf)
 		return (NULL);
 	buf[0] = 0;
@@ -31,6 +33,7 @@ int write_hi(info_t *info)
 	ssize_t fa;
 	char *filename = get_hi_file(info);
 	list_t *node = NULL;
+
 	if (!filename)
 		return (-1);
 	fa = open(filename, O_CREAT | O_TRUNC | O_RDWR, 0644);
@@ -58,6 +61,7 @@ int read_hi(info_t *info)
 	ssize_t fa, rdlen, fsize = 0;
 	struct stat st;
 	char *buf = NULL, *filename = get_hi_file(info);
+
 	if (!filename)
 		return (0);
 	fa = open(filename, O_RDONLY);
@@ -103,6 +107,7 @@ int read_hi(info_t *info)
 int build_hi_list(info_t *info, char *buf, int linecount)
 {
 	list_t *node = NULL;
+
 	if (info->history)
 		node = info->history;
 	add_to_end(&node, buf, linecount);
@@ -120,6 +125,7 @@ int renum_history(info_t *info)
 {
 	list_t *node = info->history;
 	int k = 0;
+
 	while (node)
 	{
 		node->num = k++;
