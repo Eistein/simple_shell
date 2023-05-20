@@ -54,11 +54,11 @@ int _filedescriptor(char n, int file)
 	if (n == BUF_FLUSH || k >= WRITE_BUF_SIZE)
 	{
 		write(file, buf, k);
-		l = 0;
+		k = 0;
 	}
 	if (n != BUF_FLUSH)
 		buf[k++] = n;
-	return (1);
+	return (k);
 }
 /**
  *_print_to_fd - prints an input

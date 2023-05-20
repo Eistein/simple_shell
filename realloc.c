@@ -4,10 +4,10 @@
  * set_memo - fills memory with a constant byte
  * @s: the pointer to the memory area
  * @b: the byte to fill
- * @amou: the amount of bytes to be filled
+ * @n: the amount of bytes to be filled
  * Return: (s) a pointer to the memory area s
  */
-char *set_memo(char *s, char b, unsigned int amou)
+char *set_memo(char *s, char b, unsigned int n)
 {
 	unsigned int k;
 
