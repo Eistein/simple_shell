@@ -132,7 +132,7 @@ int _print_to_fd(char *str, int fd);
 int string_length(char *);
 int string_compare(char *, char *);
 char *string_starts_with(const char *, const char *);
-char *string_concatenate((char *, char *);
+char *string_concatenate(char *, char *);
 
 /* toem_string1.c */
 char *string_copy(char *, char *);
@@ -143,7 +143,7 @@ int _putchar(char);
 /* toem_exits.c */
 char *strn_copy(char *, char *, int);
 char *strn_concat(char *, char *, int);
-char *str_character((char *, char);
+char *str_character(char *, char);
 
 /* toem_tokenizer.c */
 char **s_string(char *, char *);
@@ -155,11 +155,11 @@ void free_str(char **);
 void *re_alloc(void *, unsigned int, unsigned int);
 
 /* toem_memory.c */
-int f-pointer(void **);
+int f_pointer(void **);
 
 /* toem_atoi.c */
 int interactive(info_t *);
-int check_delim((char, char *);
+int check_delim(char, char *);
 int check_alpha(int);
 int _atoi(char *);
 
@@ -177,7 +177,7 @@ int m_help(info_t *);
 
 /* toem_builtin1.c */
 int my_story(info_t *);
-int m_alias((info_t *);
+int m_alias(info_t *);
 int pr_alias(list_t *);
 int set_as(info_t *, char *);
 int un_alias(info_t *, char *);
