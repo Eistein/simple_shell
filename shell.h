@@ -226,7 +226,7 @@ size_t list_lght(const list_t *);
 char **list_to_strs(list_t *);
 size_t print_list(const list_t *);
 list_t *node_st_with(list_t *, char *, char);
-ssize_t get_index(list_t *, list_t *);
+size_t get_index(list_t *, list_t *);
 
 /* toem_vars.c */
 int is_delm(info_t *, char *, size_t *);
