@@ -54,12 +54,6 @@ int now_dr(info_t *info)
 	}
 	else if (string_compare(info->argv[1], "-") == 0)
 	{
-		if (!ge_to_env(info, "OLDPWD="))
-		{
-			print_string(*dir);
-			_putchar('\n');
-			return (1);
-		}
 		print_string(ge_to_env(info, "OLDPWD=")), _putchar('\n');
 			chdir((dir = ge_to_env(info, "OLDPWD=")) ? dir : "/");
 	}
