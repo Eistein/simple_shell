@@ -74,14 +74,14 @@ void print_string(char *ptr)
 int _putchar (char c)
 {
 	static int n;
-	static char buffer[WRITE_BUFFER_SIZE];
+	static char buffer[WRITE_BUF_SIZE];
 
-	if (c == BUFFER_FLUSH || n >= WRITE_BUFFER_SIZE)
+	if (c == BUF_FLUSH || n >= WRITE_BUF_SIZE)
 	{
 		write(1, buffer, n);
 		n = 0;
 	}
-	if (c != BUFFER_FLUSH)
+	if (c != BUF_FLUSH)
 		buffer[n++] = c;
 	return (1);
 }

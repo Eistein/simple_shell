@@ -100,7 +100,7 @@ void f_cmd(info_t *info)
 	if (!j)
 		return;
 
-	path = f_cmd(info, ge_to_env(info, "PATH="), info->argv[0]);
+	path = find_cmd_path(info, ge_to_env(info, "PATH="), info->argv[0]);
 	if (path)
 	{
 		info->path = path;
@@ -152,7 +152,7 @@ void fo_cmd(info_t *info)
 		{
 			info->status = WEXITSTATUS(info->status);
 			if (info->status == 126)
-				print_error(info, "Permission denied\n");
+				display_error(info, "Permission denied\n");
 		}
 	}
 }

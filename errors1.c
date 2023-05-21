@@ -65,8 +65,10 @@ int p_decimal(int input, int fa)
 		ct++;
 	}
 	else
+	{
 		_abs_ = input;
 		now = _abs_;
+	}
 	for (k = 1000000000; k > 1; k /= 10)
 	{
 		if (_abs_ / k)
