@@ -5,11 +5,15 @@ Write a UNIX command line interpreter.
 Usage: simple_shell
 Your Shell should:
 
-Display a prompt and wait for the user to type a command. A command line always ends with a new line.
+Display a prompt and wait for the user to type a comm
+and. A command line always ends with a new line.
 The prompt is displayed again each time a command has been executed.
-The command lines are simple, no semicolons, no pipes, no redirections or any other advanced features.
-The command lines are made only of one word. No arguments will be passed to programs.
-If an executable cannot be found, print an error message and display the prompt again.
+The command lines are simple, no semicolons, no pipes,
+ no redirections or any other advanced features.
+The command lines are made only of one word. 
+No arguments will be passed to programs.
+If an executable cannot be found, print an error message 
+and display the prompt again.
 Handle errors.
 You have to handle the “end of file” condition (Ctrl+D)
 You don’t have to:
@@ -25,8 +29,10 @@ julien@ubuntu:~/shell$ ./shell
 #cisfun$ ls
 ./shell: No such file or directory
 #cisfun$ /bin/ls
-barbie_j       env-main.c  exec.c  fork.c  pid.c  ppid.c    prompt   prompt.c  shell.c  stat.c         wait
-env-environ.c  exec    fork    mypid   ppid   printenv  promptc  shell     stat test_scripting.sh  wait.c
+barbie_j       env-main.c  exec.c  fork.c  pid.c  ppid.c   
+ prompt   prompt.c  shell.c  stat.c         wait
+env-environ.c  exec    fork    mypid   ppid   printenv 
+ promptc  shell     stat test_scripting.sh  wait.c
 #cisfun$ /bin/ls -l
 ./shell: No such file or directory
 #cisfun$ ^[[D^[[D^[[D
@@ -91,7 +97,9 @@ C_IS=Fun_:)
 DESKTOP_SESSION=ubuntu
 LOGNAME=julien
 TERM=xterm-256color
-PATH=/home/julien/bin:/home/julien/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+PATH=/home/julien/bin:/home/julien/.local/bin:/usr/local/sbin:
+/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/
+local/games:/snap/bin
 DISPLAY=:0
 $ exit
 julien@ubuntu:~/shell$ 
@@ -212,8 +220,10 @@ Simple shell 1.0 +
 Implement the alias builtin command
 Usage: alias [name[='value'] ...]
 alias: Prints a list of all aliases, one per line, in the form name='value'
-alias name [name2 ...]: Prints the aliases name, name2, etc 1 per line, in the form name='value'
-alias name='value' [...]: Defines an alias for each name whose value is given. If name is already an alias, replaces its value with value
+alias name [name2 ...]: Prints the aliases name, name2, 
+etc 1 per line, in the form name='value'
+alias name='value' [...]: Defines an alias for each name whose val
+ue is given. If name is already an alias, replaces its value with value
 14. Variables
 #advanced
 Simple shell 1.0 +
@@ -223,13 +233,15 @@ Handle the $? variable
 Handle the $$ variable
 julien@ubuntu:~/shell$ ./hsh
 $ ls /var
-backups  cache  crash  lib  local  lock  log  mail  metrics  opt  run  snap  spool  tmp
+backups  cache  crash  lib  local  lock  log  mail
+metrics  opt  run  snap  spool  tmp
 $ echo $?
 0
 $ echo $$
 5104
 $ echo $PATH
-/home/julien/bin:/home/julien/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:
+/home/julien/bin:/home/julien/.local/bin:/usr/
+local/sbin:/usr/local/bin:/usr/sbin:
 /usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 $ exit 
 julien@ubuntu:~/shell$
@@ -252,3 +264,4 @@ Your shell can take a file as a command line argument
 The file contains all the commands that your shell should run before exiting
 The file should contain one command per line
 In this mode, the shell should not print a prompt and should not read from stdin
+
