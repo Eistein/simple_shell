@@ -229,7 +229,8 @@ $ echo $?
 $ echo $$
 5104
 $ echo $PATH
-/home/julien/bin:/home/julien/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+/home/julien/bin:/home/julien/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:
+/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 $ exit 
 julien@ubuntu:~/shell$
 15. Comments
