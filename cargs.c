@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "simple.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -39,14 +39,14 @@ void execute_command(const char *cmd, char *arguments[])
  */
 void execute_command_with_args(const char *command_line)
 {
-	char *cmd = strtok(strdup(command_line), " ");
-	char *arguments[100];
+	char *cmd = strtok(strdup(command_line), " "), *arguments[100];
 	int arg_count = 0;
 
 	while ((arguments[arg_count] = strtok(NULL, " ")) != NULL)
 	{
 		arg_count++;
 	}
+
 	arguments[arg_count] = NULL;
 	if (cmd)
 	{
@@ -56,8 +56,7 @@ void execute_command_with_args(const char *command_line)
 		}
 		else
 		{
-			char *path = getenv("PATH");
-			char *path_copy = strdup(path);
+			char *path = getenv("PATH"), *path_copy = strdup(path);
 			char *dir = strtok(path_copy, ":");
 
 			while (dir != NULL)
