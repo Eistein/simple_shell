@@ -5,44 +5,74 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include "simple.h"
-/**
- *print_environment - Prints the current environment variables.
- */
-void print_environment(void)
-{
-	extern char **environ;
-	char **env;
 
-	for (env = environ; *env; env++)
+/**
+ * sh_exct - execute program launch
+ *
+ * @args: Null terminated list of arguments
+ *
+ * Return: 1 to continue running and 0 to terminate
+ */
+
+int sh_exct(char **args)
+{
+	char *builtin_str[] = {
+		"cd",
+		"exit"};
+
+	int (*builtin_func[])(char **) = {
+		&bltn_cmd,
+		&bltn_exit};
+
+	int j;
+
+	if (args[0] == NULL)
 	{
-		printf("%s\n", *env);
+		return (1);
 	}
+	for (j = 0; j < num_bltn(); j++)
+	{
+		if (strcmp(args[0], builtin_str[j]) == 0)
+		{
+			return ((*builtin_func[j])(args));
+		}
+	}
+
+	return (sh_lp(args));
 }
 
 /**
- *shell_loop - Main loop of the simple shell.
+ * sh_shell - loop that gets inputs and executes functions
+ *
+ * Return: void
  */
-void shell_loop(void)
+
+void sh_shell(void)
 {
-	char input[100];
-	char *username = getenv("USER");
-	char *homedir = getenv("HOME");
+	char *line;
+	char **args;
+	int status;
 
-	while (1)
-	{
-		char cwd[1024];
+	do {
+		printf("$ ");
+		line = sh_read();
+		args = sh_split(line);
+		status = sh_exct(args);
 
-		getcwd(cwd, sizeof(cwd));
+		free(line);
+		free(args);
+	} while (status);
+}
 
-		printf("%s@%s:%s$ ", username, homedir, cwd);
+/**
+ * main - main shell function
+ *
+ * Return: status code
+ */
 
-		fgets(input, sizeof(input), stdin);
+int main(void)
+{
+	sh_shell();
 
-		input[strcspn(input, "\n")] = '\0';
-
-		if (strcmp(input, "env") == 0)
-		{
-			print_environment();
-		}
-	}
+	return (EXIT_SUCCESS);
 }
